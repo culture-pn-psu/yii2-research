@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel culturePnPsu\research\models\ResearchSearch */
+/* @var $searchModel culturePnPsu\research\models\ResearchPersonSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('culture\research', 'Researches');
+$this->title = Yii::t('culture\research', 'Research People');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="research-index">
+<div class="research-person-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('culture\research', 'Create Research'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('culture\research', 'Create Research Person'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,15 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'title',
-            'abstract:ntext',
-            'fiscal_year',
-            'fiscal',
-            // 'support_from',
-            // 'is_intranet',
-            // 'start_date',
-            // 'end_date',
-            // 'status',
+            'prefix_id',
+            'name',
+            'surname',
+            'tel',
+            // 'address',
             // 'created_at',
             // 'created_by',
             // 'updated_at',

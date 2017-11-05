@@ -3,16 +3,16 @@
 namespace culturePnPsu\research\controllers;
 
 use Yii;
-use culturePnPsu\research\models\Research;
-use culturePnPsu\research\models\ResearchSearch;
+use culturePnPsu\research\models\ResearchPerson;
+use culturePnPsu\research\models\ResearchPersonSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DefaultController implements the CRUD actions for Research model.
+ * PersonController implements the CRUD actions for ResearchPerson model.
  */
-class DefaultController extends Controller
+class PersonController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class DefaultController extends Controller
     }
 
     /**
-     * Lists all Research models.
+     * Lists all ResearchPerson models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ResearchSearch();
+        $searchModel = new ResearchPersonSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Displays a single Research model.
+     * Displays a single ResearchPerson model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class DefaultController extends Controller
     }
 
     /**
-     * Creates a new Research model.
+     * Creates a new ResearchPerson model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Research();
+        $model = new ResearchPerson();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Updates an existing Research model.
+     * Updates an existing ResearchPerson model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Deletes an existing Research model.
+     * Deletes an existing ResearchPerson model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class DefaultController extends Controller
     }
 
     /**
-     * Finds the Research model based on its primary key value.
+     * Finds the ResearchPerson model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Research the loaded model
+     * @return ResearchPerson the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Research::findOne($id)) !== null) {
+        if (($model = ResearchPerson::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
